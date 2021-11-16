@@ -1,0 +1,1071 @@
+$doctext: #fff;
+$navheader: #000;
+$nav-link: #000;
+$bg: #335d7f;
+$headerfont: "Roboto", sans-serif;
+$textfont: "Lato", sans-serif;
+
+@mixin box-sizing($type: border-box) {
+	-webkit-box-sizing: $type; // Android < 2.3, iOS < 4
+	-moz-box-sizing: $type; // Firefox < 29
+	box-sizing: $type; // Chrome, IE 8+, Opera, Safari 5.1
+}
+
+.clearfix {
+	display: block;
+	clear: both;
+	content: " ";
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	@include box-sizing(border-box);
+}
+
+html {
+	@include box-sizing(border-box);
+	padding: 0;
+	margin: 0;
+	scroll-behavior: smooth;
+	scroll-margin-top: 100px;
+}
+
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: $bg;
+}
+
+h1,
+h2,
+h3 {
+	display: block;
+	margin: 0;
+	padding: 0;
+	font-family: $headerfont;
+	letter-spacing: 0.05em;
+	color: #000;
+}
+
+h2 {
+	font-size: 1.1em;
+}
+
+h3 {
+	font-size: 1em;
+}
+
+hr {
+	display: block;
+	margin: 1em auto;
+	width: 85%;
+	height: 5px;
+}
+
+header#main-header {
+	position: sticky;
+	margin-bottom: 0.5em;
+	width: auto;
+	height: 100px;
+	text-align: left;
+	text-shadow: #000 1px 1px 1px;
+	padding: 0.5em;
+	h1 {
+		line-height: 30px;
+		color: $doctext;
+		font-size: 1em;
+		width: auto;
+	}
+	p {
+		line-height: 30px;
+		font-size: 0.8em;
+		color: $doctext;
+		width: auto;
+	}
+}
+
+button.menu-toggle {
+	position: fixed;
+	z-index: 105;
+	display: block;
+	top: 0.2em;
+	font-size: 1em;
+	text-transform: uppercase;
+	border: none;
+	transition: all ease-out 0.4s;
+	line-height: 45px;
+	height: 45px;
+	width: 24%;
+	text-align: center;
+	padding: 0;
+	left: calc(80vw - 20px);
+}
+
+button.menu-toggle.hide {
+	left: 110vw;
+}
+
+hr {
+	border: none;
+}
+
+.show {
+	left: 0;
+	opacity: 1;
+}
+.hide {
+	left: -240px;
+}
+
+/* Make sure the button doesn't hide when menu is open. */
+button.menu-toggle:hover,
+button.menu-toggle:focus {
+	text-decoration: underline;
+	border: solid 2px #000;
+	cursor: pointer;
+}
+
+.fixed-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: left;
+	text-indent: 0.5em;
+	background-color: $bg;
+	z-index: 100;
+}
+
+div#container {
+	display: block;
+	height: auto;
+
+	aside {
+		position: fixed;
+		z-index: 100;
+		left: -240px;
+		width: 240px;
+		overflow: hidden;
+		margin: 0;
+		header {
+			font-size: 1em;
+			line-height: 60px;
+			width: 100%;
+			display: block;
+			text-align: center;
+			height: 60px;
+			color: $doctext;
+			background-color: #154f7f;
+			margin: 0;
+			text-shadow: none;
+		}
+		#navbar {
+			width: 100%;
+			display: block;
+			float: left;
+			color: $doctext;
+			text-align: center;
+			margin-right: 0.5em;
+			text-shadow: #000 1px 1px 1px;
+			letter-spacing: 0.05em;
+			a.nav-link {
+				font-family: $textfont;
+				width: 100%;
+				line-height: 50px;
+				display: block;
+				height: 50px;
+				text-decoration: none;
+				margin: 0.25em 0;
+				background-color: #299eff;
+				color: $doctext;
+				font-size: 0.9em;
+				-webkit-transition: all 0.2s ease-in-out; /* Safari */
+				transition: width all 0.2s ease-in-out;
+				&:hover {
+					background-color: $doctext;
+					color: #299eff;
+					text-shadow: none;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+
+	main#main-doc {
+		width: 100%;
+		display: block;
+		color: $doctext;
+		section.main-section {
+			width: 100%;
+			padding: 0 0.5em;
+			min-height: 100vh;
+			background-color: $doctext;
+			header {
+				font-size: 1.3em;
+				height: 50px;
+				line-height: 50px;
+				font-weight: bold;
+				color: #000;
+				text-align: left;
+			}
+
+			ul {
+				display: block;
+				margin: 0 auto;
+				li {
+					line-height: 30px;
+					font-size: 0.8em;
+					color: #000;
+				}
+			}
+
+			code {
+				font-family: "Courier New", Courier, monospace;
+				font-size: 0.8em;
+				color: #333;
+				background-color: rgb(241, 241, 241);
+				line-height: 20px;
+			}
+
+			p {
+				font-family: $textfont;
+				font-size: 0.85em;
+				line-height: 1.8em;
+				width: 100%;
+				color: #000;
+				text-align: left;
+			}
+
+			table.tablecss {
+				width: 100%;
+				thead {
+					height: 60px;
+					line-height: 60px;
+					background-color: #154f7f;
+					tr {
+						height: 100%;
+						th {
+							text-align: left;
+							font-size: 0.7em;
+							line-height: 20px;
+							text-align: center;
+						}
+					}
+				}
+				tbody {
+					height: auto;
+					tr {
+						height: 35px;
+						td {
+							font-size: 0.7em;
+							color: #000;
+						}
+					}
+				}
+			}
+			table.tablecss2 {
+				border-collapse: collapse;
+				width: 100%;
+
+				thead {
+					height: 40px;
+					line-height: 40px;
+					background-color: #154f7f;
+
+					tr {
+						height: 100%;
+						th {
+							text-align: left;
+							font-size: 0.7em;
+						}
+					}
+				}
+
+				tbody {
+					height: auto;
+					tr {
+						height: 35px;
+						td:first-of-type {
+							text-indent: 1em;
+						}
+						td {
+							font-size: 0.7em;
+							color: #000;
+						}
+					}
+				}
+			}
+		}
+		#Positioning {
+			min-height: 100vh;
+
+			h1,
+			h2 {
+				height: 30px;
+				line-height: 30px;
+				display: block;
+				font-size: 90%;
+			}
+
+			p {
+				margin: 0 0 0.5em 0;
+				padding: 0;
+			}
+		}
+	}
+}
+
+#myBtn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	border: 1px solid #000;
+	outline: none;
+	background-color: $doctext;
+	color: #000;
+	cursor: pointer;
+	padding: 15px;
+	border-radius: 10px;
+	font-size: 18px;
+}
+
+#myBtn:hover {
+	background-color: #333;
+	color: $doctext;
+}
+
+footer {
+	color: $doctext;
+	height: 100px;
+	background-color: blue;
+}
+
+@media only screen and (min-width: 90em) {
+	button.menu-toggle {
+		display: none;
+	}
+
+	header#main-header {
+		padding: 0.75em;
+		h1 {
+			font-size: 1.3em;
+		}
+		p {
+			font-size: 0.9em;
+		}
+	}
+
+	div#container {
+		height: auto;
+		display: flex;
+		justify-content: end;
+
+		aside {
+			width: 20%;
+			left: 0;
+			position: fixed;
+			z-index: 0;
+			top: 100px;
+
+			header {
+				font-size: 1em;
+			}
+			#navbar {
+				margin-right: 0.5em;
+
+				a.nav-link {
+					line-height: 50px;
+					height: 50px;
+					font-size: 1em;
+					&:hover {
+						font-weight: bold;
+					}
+				}
+			}
+		}
+
+		main#main-doc {
+			width: 79%;
+
+			section.main-section {
+				padding: 0 0.5em;
+
+				header {
+					font-size: 1.3em;
+				}
+
+				ul {
+					display: block;
+					li {
+						font-size: 1em;
+					}
+				}
+
+				code {
+					font-size: 1em;
+					line-height: 20px;
+				}
+
+				p {
+					font-size: 1em;
+					line-height: 1.8em;
+					color: #000;
+				}
+
+				table.tablecss {
+					width: 100%;
+					thead {
+						height: 60px;
+						line-height: 60px;
+
+						tr {
+							height: 100%;
+							th {
+								font-size: 0.9em;
+							}
+						}
+					}
+					tbody {
+						height: auto;
+						tr {
+							height: 35px;
+							td {
+								font-size: 0.9em;
+							}
+						}
+					}
+				}
+				table.tablecss2 {
+					border-collapse: collapse;
+
+					thead {
+						tr {
+							height: 100%;
+							th {
+								text-align: left;
+								font-size: 0.9em;
+							}
+						}
+					}
+
+					tbody {
+						height: auto;
+						tr {
+							height: 35px;
+							td:first-of-type {
+								text-indent: 1em;
+							}
+							td {
+								font-size: 0.7em;
+							}
+						}
+					}
+				}
+			}
+			#Positioning {
+				min-height: 100vh;
+
+				h1,
+				h2 {
+					height: 30px;
+					line-height: 30px;
+				}
+
+				p {
+					margin: 0 0 0.5em 0;
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	#myBtn {
+		font-size: 18px;
+	}
+
+	footer {
+		height: 100px;
+	}
+}
+
+@media only screen and (min-width: 64em) and (max-width: 1439px) {
+	button.menu-toggle {
+		display: none;
+	}
+
+	header#main-header {
+		padding: 0.5em;
+		h1 {
+			font-size: 1.3em;
+		}
+		p {
+			font-size: 0.9em;
+		}
+	}
+
+	div#container {
+		height: auto;
+		display: flex;
+		justify-content: end;
+
+		aside {
+			width: 20%;
+			left: 0;
+			position: fixed;
+			z-index: 0;
+			top: 100px;
+
+			header {
+				font-size: 1em;
+			}
+			#navbar {
+				margin-right: 0.5em;
+
+				a.nav-link {
+					line-height: 50px;
+					height: 50px;
+					font-size: 1em;
+					&:hover {
+						font-weight: bold;
+					}
+				}
+			}
+		}
+
+		main#main-doc {
+			width: 79%;
+
+			section.main-section {
+				padding: 0 0.5em;
+
+				header {
+					font-size: 1.3em;
+				}
+
+				ul {
+					display: block;
+					li {
+						font-size: 0.9em;
+					}
+				}
+
+				code {
+					font-size: 0.9em;
+					line-height: 20px;
+				}
+
+				p {
+					font-size: 0.95em;
+					line-height: 1.8em;
+					color: #000;
+				}
+
+				table.tablecss {
+					width: 100%;
+					thead {
+						height: 60px;
+						line-height: 60px;
+
+						tr {
+							height: 100%;
+							th {
+								font-size: 0.9em;
+							}
+						}
+					}
+					tbody {
+						height: auto;
+						tr {
+							height: 35px;
+							td {
+								font-size: 0.9em;
+							}
+						}
+					}
+				}
+				table.tablecss2 {
+					border-collapse: collapse;
+
+					thead {
+						tr {
+							height: 100%;
+							th {
+								text-align: left;
+								font-size: 0.9em;
+							}
+						}
+					}
+
+					tbody {
+						height: auto;
+						tr {
+							height: 35px;
+							td:first-of-type {
+								text-indent: 1em;
+							}
+							td {
+								font-size: 0.9em;
+							}
+						}
+					}
+				}
+			}
+			#Positioning {
+				min-height: 100vh;
+
+				h1,
+				h2 {
+					height: 30px;
+					line-height: 30px;
+				}
+
+				p {
+					margin: 0 0 0.5em 0;
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	#myBtn {
+		font-size: 18px;
+	}
+
+	footer {
+		height: 100px;
+	}
+}
+
+@media only screen and (min-width: 46em) and (max-width: 1023px) {
+	button.menu-toggle {
+		display: none;
+	}
+
+	header#main-header {
+		padding: 0.5em;
+		h1 {
+			font-size: 1.2em;
+		}
+		p {
+			font-size: 0.9em;
+		}
+	}
+
+	div#container {
+		height: auto;
+		display: flex;
+		justify-content: end;
+
+		aside {
+			width: 30%;
+			left: 0;
+			position: fixed;
+			z-index: 0;
+			top: 100px;
+
+			header {
+				font-size: 1em;
+			}
+			#navbar {
+				margin-right: 0.5em;
+
+				a.nav-link {
+					line-height: 50px;
+					height: 50px;
+					font-size: 0.9em;
+					&:hover {
+						font-weight: bold;
+					}
+				}
+			}
+		}
+
+		main#main-doc {
+			width: 69%;
+
+			section.main-section {
+				padding: 0 0.5em;
+
+				header {
+					font-size: 1.3em;
+				}
+
+				ul {
+					display: block;
+					li {
+						font-size: 0.9em;
+					}
+				}
+
+				code {
+					font-size: 0.9em;
+					line-height: 20px;
+				}
+
+				p {
+					font-size: 0.9em;
+					line-height: 1.8em;
+					color: #000;
+				}
+
+				table.tablecss {
+					width: 100%;
+					thead {
+						height: 60px;
+						line-height: 60px;
+
+						tr {
+							height: 100%;
+							th {
+								font-size: 0.8em;
+							}
+						}
+					}
+					tbody {
+						height: auto;
+						tr {
+							height: 35px;
+							td {
+								font-size: 0.8em;
+							}
+						}
+					}
+				}
+				table.tablecss2 {
+					border-collapse: collapse;
+
+					thead {
+						tr {
+							height: 100%;
+							th {
+								text-align: left;
+								font-size: 0.75em;
+							}
+						}
+					}
+
+					tbody {
+						height: auto;
+						tr {
+							height: 35px;
+							td:first-of-type {
+								text-indent: 1em;
+							}
+							td {
+								font-size: 0.8em;
+							}
+						}
+					}
+				}
+			}
+			#Positioning {
+				min-height: 100vh;
+
+				h1,
+				h2 {
+					height: 30px;
+					line-height: 30px;
+				}
+
+				p {
+					margin: 0 0 0.5em 0;
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	#myBtn {
+		font-size: 18px;
+	}
+
+	footer {
+		height: 100px;
+	}
+}
+
+@media only screen and (min-width: 37.5em) and (max-width: 735px) {
+	button.menu-toggle {
+		left: calc(78vw - 20px);
+	}
+	header#main-header {
+		padding: 0.5em;
+		h1 {
+			font-size: 1.1em;
+		}
+		p {
+			font-size: 0.85em;
+		}
+	}
+
+	div#container {
+		height: auto;
+
+		aside {
+			width: 240px;
+			header {
+				font-size: 1em;
+			}
+			#navbar {
+				margin-right: 0.5em;
+
+				a.nav-link {
+					line-height: 50px;
+					height: 50px;
+					&:hover {
+						font-weight: bold;
+					}
+				}
+			}
+		}
+
+		main#main-doc {
+			width: 100%;
+
+			section.main-section {
+				padding: 0 0.5em;
+
+				header {
+					font-size: 1.3em;
+				}
+
+				ul {
+					display: block;
+					li {
+						font-size: 0.8em;
+					}
+				}
+
+				code {
+					font-size: 0.8em;
+					line-height: 20px;
+				}
+
+				p {
+					font-size: 0.85em;
+					line-height: 1.8em;
+					color: #000;
+				}
+
+				table.tablecss {
+					width: 100%;
+					thead {
+						height: 60px;
+						line-height: 60px;
+
+						tr {
+							height: 100%;
+							th {
+								font-size: 0.7em;
+							}
+						}
+					}
+					tbody {
+						height: auto;
+						tr {
+							height: 35px;
+							td {
+								font-size: 0.7em;
+							}
+						}
+					}
+				}
+				table.tablecss2 {
+					border-collapse: collapse;
+
+					thead {
+						tr {
+							height: 100%;
+							th {
+								text-align: left;
+								font-size: 0.75em;
+							}
+						}
+					}
+
+					tbody {
+						height: auto;
+						tr {
+							height: 35px;
+							td:first-of-type {
+								text-indent: 1em;
+							}
+							td {
+								font-size: 0.7em;
+							}
+						}
+					}
+				}
+			}
+			#Positioning {
+				min-height: 100vh;
+
+				h1,
+				h2 {
+					height: 30px;
+					line-height: 30px;
+				}
+
+				p {
+					margin: 0 0 0.5em 0;
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	#myBtn {
+		font-size: 18px;
+	}
+
+	footer {
+		height: 100px;
+	}
+}
+
+@media only screen and (min-width: 22.5em) and (max-width: 599px) {
+	button.menu-toggle {
+		left: calc(78vw - 20px);
+	}
+
+	header#main-header {
+		padding: 0.5em;
+		h1 {
+			font-size: 1.1em;
+		}
+		p {
+			font-size: 0.85em;
+		}
+	}
+
+	div#container {
+		height: auto;
+
+		aside {
+			width: 240px;
+			header {
+				font-size: 1em;
+			}
+			#navbar {
+				margin-right: 0.5em;
+
+				a.nav-link {
+					line-height: 50px;
+					height: 50px;
+					&:hover {
+						font-weight: bold;
+					}
+				}
+			}
+		}
+
+		main#main-doc {
+			width: 100%;
+
+			section.main-section {
+				padding: 0 0.5em;
+
+				header {
+					font-size: 1.3em;
+				}
+
+				ul {
+					display: block;
+					li {
+						font-size: 0.8em;
+					}
+				}
+
+				code {
+					font-size: 0.8em;
+					line-height: 20px;
+				}
+
+				p {
+					font-size: 0.85em;
+					line-height: 1.8em;
+					color: #000;
+				}
+
+				table.tablecss {
+					width: 100%;
+					thead {
+						height: 60px;
+						line-height: 60px;
+
+						tr {
+							height: 100%;
+							th {
+								font-size: 0.7em;
+							}
+						}
+					}
+					tbody {
+						height: auto;
+						tr {
+							height: 35px;
+							td {
+								font-size: 0.7em;
+							}
+						}
+					}
+				}
+				table.tablecss2 {
+					border-collapse: collapse;
+
+					thead {
+						tr {
+							height: 100%;
+							th {
+								text-align: left;
+								font-size: 0.75em;
+							}
+						}
+					}
+
+					tbody {
+						height: auto;
+						tr {
+							height: 35px;
+							td:first-of-type {
+								text-indent: 1em;
+							}
+							td {
+								font-size: 0.7em;
+							}
+						}
+					}
+				}
+			}
+			#Positioning {
+				min-height: 100vh;
+
+				h1,
+				h2 {
+					height: 30px;
+					line-height: 30px;
+				}
+
+				p {
+					margin: 0 0 0.5em 0;
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	#myBtn {
+		font-size: 18px;
+	}
+
+	footer {
+		height: 100px;
+	}
+}

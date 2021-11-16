@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>CSS Documentation Page</title>
+		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
+	</head>
+
+	<body>
+		<header id="main-header">
+			<h1>Cascading Style Sheets (CSS)</h1>
+			<p>Developed by Håkon Wium - Lie Bert Bos</p>
+			<p>Technical Documentation Page</p>
+			<!--mobile  menu-->
+			<button
+				class="menu-toggle"
+				aria-label="menu"
+				aria-controls="site_navigation"
+				aria-expanded="false"
+			>
+			Menu
+		</button>
+		</header>
+
+
+		<div id="container">
+			<!--Navigation-->
+			<aside id="site-navigation">
+				<header>TOPICS</header>
+				<nav id="navbar">
+					<a class="nav-link" href="#Cascading_Style_Sheets">Cascading Style Sheets</a>
+
+					<a class="nav-link" href="#Syntax">Syntax</a>
+
+					<a class="nav-link" href="#Selectors">Selectors</a>
+
+					<a class="nav-link" href="#Declaration_block">Declaration block</a>
+
+					<a class="nav-link" href="#Sources">Sources</a>
+
+					<a class="nav-link" href="#Specificity">Specificity</a>
+
+					<a class="nav-link" href="#Inheritance">Inheritance</a>
+
+					<a class="nav-link" href="#Whitespace">Whitespace</a>
+
+					<a class="nav-link" href="#Positioning">Positioning</a>
+
+					<a class="nav-link" href="#History">History</a>
+				</nav>
+			</aside>
+			<!--Main-->
+			<main id="main-doc">
+				<!--Cascading Style Sheets-->
+				<section id="Cascading_Style_Sheets" class="main-section">
+					<header>Cascading Style Sheets</header>
+					<p>
+						Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document
+						written in a markup language like HTML.[1] CSS is a cornerstone technology of the World Wide Web, alongside
+						HTML and JavaScript.[2] CSS is designed to enable the separation of presentation and content,
+						including layout, colors, and fonts.[3] This separation can improve content accessibility, provide more
+						flexibility and control in the specification of presentation characteristics, enable
+						multiple web pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce
+						complexity and repetition in the structural content.
+					</p>
+					<p>
+						Separation of formatting and content also makes it feasible to present the same markup page in different
+						styles for different rendering methods, such as on-screen, in print, by voice (via speech-based browser
+						or screen reader), and on Braille-based tactile devices. CSS also has rules for alternate formatting if the
+						content is accessed on a mobile device.[4] The name cascading comes from the specified priority scheme to
+						determine which style rule applies if more than one rule matches a particular element.
+					</p>
+					<p>
+						This cascading priority scheme is predictable. The CSS specifications are maintained by the World Wide Web
+						Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March
+						1998). The W3C operates a free CSS validation service for CSS documents.[5] In addition to HTML, other
+						markup languages support the use of CSS including XHTML, plain XML, SVG, and XUL.
+					</p>
+				</section>
+
+				<hr>
+				<!--Syntax-->
+				<section id="Syntax" class="main-section">
+					<header>Syntax</header>
+					<p>
+						CSS has a simple syntax and uses a number of English keywords to specify the names of various style
+						properties. A style sheet consists of a list of rules. Each rule or rule-set consists of one or
+						more selectors, and a declaration block.
+					</p>
+				</section>
+
+				<hr>
+				<!--Selectors-->
+				<section id="Selectors" class="main-section">
+					<header>Selectors</header>
+					<p>
+						In CSS, selectors declare which part of the markup a style applies to by matching tags and attributes in the
+						markup itself. Selectors may apply to:
+					</p>
+					<ul>
+						<li>all elements of a specific type, e.g. the second-level headers h2</li>
+						<li>elements specified by attribute, in particular:</li>
+						<li>id: an identifier unique within the document</li>
+						<li>class: an identifier that can annotate multiple elements in a document</li>
+						<li>elements depending on how they are placed relative to others in the document tree.</li>
+					</ul>
+					<p>
+						Classes and IDs are case-sensitive, start with letters, and can include alphanumeric characters and
+						underscores. A class may apply to any number of instances of any elements. An ID may only be applied to a
+						single element.
+					</p>
+					<p>
+						Pseudo-classes are used in CSS selectors to permit formatting based on information that is not contained in
+						the document tree. One example of a widely used pseudo-class is :hover, which identifies content only when
+						the user “points to” the visible element, usually by holding the mouse cursor over it. It is appended to a
+						selector as in <code>a:hover</code> or  <code>#elementid:hover</code>.
+					</p>
+					<p>
+						A pseudo-class classifies document elements, such as :link or :visited, whereas pseudo-element makes a
+						selection that may consist of partial elements, such
+						as <code>::first-line</code> or <code>::first-letter</code>.[6]
+						Selectors may be combined in many ways to achieve great specificity and flexibility.[7] Multiple selectors
+						may be joined in a spaced list to specify elements by location, element type, id, class, or
+						any combination thereof.
+					</p>
+					<p>
+						The order of the selectors is important. For example, <code>div .myClass {color: red;}</code> applies to all
+						elements of class myClass that are inside div elements,
+						whereas <code>.myClass div {color: red;}</code> applies to all div elements that are in elements of class
+						myClass. The following table provides a summary of selector syntax indicating usage and the version of CSS
+						that
+						introduced it.[8]
+					</p>
+
+					<table class="tablecss">
+						<thead>
+							<tr>
+								<th>Pattern</th>
+								<th>Matches</th>
+								<th>First defined in CSS level</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>E</code></td>
+								<td>an element of type E</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td><code> E:link</code></td>
+								<td>
+									an E element is the source anchor of a hyperlink of which the target is not yet visited (:link) or
+									already visited (:visited)
+								</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td><code>E:active</code></td>
+								<td>an E element during certain user actions</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td><code>E::first-line</code></td>
+								<td>the first formatted line of an E element</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td><code>E::first-letter</code></td>
+								<td>the first formatted letter of an E element</td>
+								<td>1</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</section>
+
+				<hr>
+				<!--Declaration_block-->
+				<section id="Declaration_block" class="main-section">
+					<header>Declaration block</header>
+					<p>
+						A declaration block consists of a list of declarations in braces. Each declaration itself consists of
+						a property, a colon (:), and a value. If there are multiple declarations in a block, a semi-colon (;) must
+						be inserted to separate each declaration.[9]
+
+					</p>
+					<p>
+						Properties are specified in the CSS standard. Each property has a set of possible values. Some properties
+						can affect any type of element, and others apply only to particular groups of elements.[10]
+					</p>
+					<p>
+						Values may be keywords, such as "center" or "inherit", or numerical values, such as <code>200px</code> (200
+						pixels), <code>50vw</code> (50 percent of the viewport width) or <code>80%</code> (80 percent of
+						the window width). Color values can be specified with keywords (e.g. "red"), hexadecimal values
+						(e.g. <code>#FF0000</code>,
+						also abbreviated as <code>#F00</code>), RGB values on a 0 to 255 scale (e.g. <code>rgb(255, 0, 0)</code>),
+						RGBA values that specify both color and alpha transparency (e.g. <code>rgba(255, 0, 0, 0.8)</code>), or HSL
+						or HSLA values (e.g. <code>hsl(000, 100%, 50%)</code>, <code>hsla(000, 100%, 50%, 80%)</code>).[11]
+
+					</p>
+					<header>Use</header>
+					<p>
+						Before CSS, nearly all presentational attributes of HTML documents were contained within the HTML markup.
+						All font colors, background styles, element alignments, borders and sizes had to be explicitly
+						described, often repeatedly, within the HTML. CSS lets authors move much of that information to another
+						file, the style sheet, resulting in considerably simpler HTML. For example, headings (h1 elements),
+						sub-headings (h2), sub-sub-headings (h3), etc., are defined
+						structurally using HTML. In print and on the screen, choice of font, size, colorand emphasis for these
+						elements is presentational.
+					</p>
+					<p>
+						Before CSS, document authors who wanted to assign such typographic characteristics to, say, all h2 headings
+						had to repeat HTML presentational markup for each occurrence of that heading type. This made documents more
+						complex, larger, and more error-prone and difficult to maintain. CSS allows the separation of presentation
+						from structure. CSS can define color, font, text alignment, size, borders, spacing, layout and many other
+						typographic characteristics, and can do so independently for on-screen and printed views. CSS also defines
+						non-visual styles, such as reading speed and emphasis for aural text readers. The W3C has now deprecated the
+						use of all presentational HTML markup.[12] For example, under pre-CSS HTML, a heading element defined with
+						red text would be written as:
+					</p>
+					<code>
+						&lt;h1&gt;
+						&lt;font color="red"&gt; Chapter 1. &lt;/font&gt;
+						&lt;/h1&gt;
+					</code>
+					<p>
+						The advantages of this may not be immediately clear (since the second form is actually more verbose), but
+						the power of CSS becomes more apparent when the style properties are placed in an internal style element or,
+						even better, an external CSS file. For example, suppose the document contains the style element:
+					</p>
+					<code>
+						&lt;style&gt;
+						h1 {color: red;}
+						&lt;/style&gt;
+					</code>
+					<p>
+						All h1 elements in the document will then automatically become red without requiring any explicit code. If
+						the author later wanted to make h1 elements blue instead, this could be done by changing the style element
+						to:
+					</p>
+					<code>
+						&lt;style&gt;
+						h1 {color: blue;}
+						&lt;/style&gt;
+					</code>
+					<p>
+						rather than by laboriously going through the document and changing the color for each individual h1 element.
+						The styles can also be placed in an external CSS file, as described below, and loaded using syntax similar
+						to:
+					</p>
+					<code>
+						&lt;link href="path/to/file.css" rel="stylesheet" type="text/css"&gt;
+					</code>
+					<p>
+						This further decouples the styling from the HTML document, and makes it possible to restyle multiple
+						documents by simply editing a shared external CSS file.
+					</p>
+				</section>
+
+				<hr>
+				<!--Sources-->
+				<section id="Sources" class="main-section">
+					<header>Sources</header>
+					<p>
+						CSS information can be provided from various sources. These sources can be the web browser, the user and the
+						author. The information from the author can be further classified into inline, media type,
+						importance, selector specificity, rule order, inheritance and property definition. CSS style information can
+						be in a separate document or it can be embedded into an HTML document. Multiple style
+						sheets can be imported. Different styles can be applied depending on the output device being used; for
+						example, the screen version can be quite different from the printed version, so that authors can tailor the
+						presentation appropriately for each medium.
+					</p>
+					<p>
+						The style sheet with the highest priority controls the content display. Declarations not set in the highest
+						priority source are passed on to a source of lower priority, such as the user agent style. This process is
+						called cascading.
+					</p>
+					<p>
+						One of the goals of CSS is to allow users greater control over presentation. Someone who finds red italic
+						headings difficult to read may apply a different style sheet. Depending on the browser and the web site, a
+						user may choose from various style sheets provided by the designers, or may remove all added styles and view
+						the site using the browser's default styling, or may override just the red italic heading style without
+						altering other attributes.
+					</p>
+					<table class="tablecss2">
+						<thead>
+							<tr>
+								<th>Priority</th>
+								<th>CSS source type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Importance</td>
+								<td>The ‘!important’ annotation overwrites the previous priority types</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Inline</td>
+								<td>A style applied to an HTML element via HTML ‘style’ attribute</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Media Type</td>
+								<td>A property definition applies to all media types, unless a media specific CSS is defined</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>User defined</td>
+								<td>Most browsers have the accessibility feature: a user defined CSS</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>Selector specificity</td>
+								<td>A specific contextual selector (#heading p) overwrites generic definition</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>Rule order</td>
+								<td>Last rule declaration has a higher priority</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>Parent inheritance</td>
+								<td>If a property is not specified, it is inherited from a parent element</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>CSS property definition in HTML document</td>
+								<td>CSS rule or CSS inline style overwrites a default browser value</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>Browser default</td>
+								<td>The lowest priority: browser default value is determined by W3C initial value specifications</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<hr>
+
+				<!--Specificity-->
+				<section id="Specificity" class="main-section">
+					<header>Specificity</header>
+					<p>
+						Specificity refers to the relative weights of various rules.[13] It determines which styles apply to an
+						element when more than one rule could apply. Based on specification, a simple selector (e.g. H1) has a
+						specificity of 1, class selectors have a specificity of 1,0, and ID selectors a specificity of 1,0,0.
+						Because the specificity values do not carry over as in the decimal system, commas are used to separate the
+						"digits"[14] (a CSS rule having 11 elements and 11 classes would have a specificity of 11,11, not 121).
+					</p>
+					<p>
+						Thus the following rules selectors result in the indicated specificity:
+					</p>
+
+					<table class="tablecss2">
+						<thead>
+							<tr>
+								<th>Selectors</th>
+								<th>Specificity</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>H1 {color: white;}</code></td>
+								<td>0, 0, 0, 1</td>
+
+							</tr>
+							<tr>
+								<td><code>P EM {color: green;}</code></td>
+								<td>0, 0, 0, 2</td>
+
+							</tr>
+							<tr>
+								<td><code>.grape {color: red;}</code></td>
+								<td>0, 0, 1, 0</td>
+
+							</tr>
+							<tr>
+								<td><code>P.bright {color: blue;}</code></td>
+								<td>0, 0, 1, 1</td>
+
+							</tr>
+							<tr>
+								<td><code>P.bright EM.dark {color: yellow;}</code></td>
+								<td>0, 0, 2, 2</td>
+
+							</tr>
+							<tr>
+								<td><code>#id218 {color: brown;}</code></td>
+								<td>0, 1, 0, 0</td>
+
+							</tr>
+							<tr>
+								<td><code>style=" "</code></td>
+								<td>1, 0, 0, 0</td>
+
+							</tr>
+						</tbody>
+					</table>
+
+					<p>
+						Example[edit]
+						Consider this HTML fragment:
+						<code>
+							&lt;!DOCTYPE htm&gt;
+
+							&lt;html&gt;
+
+							&lt;head&gt;
+
+							&lt;meta charset="utf-8"&gt;
+
+							&lt;style&gt;
+
+							#xyz { color: blue; }
+
+							&lt;/style&gt;
+
+							&lt;/head&gt;
+
+							&lt;body&gt;
+
+							&lt;p id="xyz" style="color: green;"&gt; To demonstrate specificity &lt;/p&gt;
+
+							&lt;/body&gt;
+
+							&lt;/html&gt;
+
+						</code>
+					</p>
+
+					<p>
+						In the above example, the declaration in the style attribute overrides the one in the
+						<code>&lt;style&gt;</code> element because it has a higher specificity, and thus, the paragraph appears
+						green.
+					</p>
+
+				</section>
+
+				<!--Inheritance-->
+				<section id="Inheritance" class="main-section">
+					<header>Inheritance</header>
+					<p>
+						Inheritance is a key feature in CSS; it relies on the ancestor-descendant relationship to operate.
+						Inheritance is the mechanism by which properties are applied not only to a specified element, but also to
+						its descendants.[13] Inheritance relies on the document tree, which is the hierarchy of XHTML elements in a
+						page based on nesting. Descendant elements may inherit CSS property values from any ancestor element
+						enclosing them.
+					</p>
+
+					<p>
+						In general, descendant elements inherit text-related properties, but box-related properties are not
+						inherited. Properties that can be inherited are color, font, letter-spacing, line-height, list-style,
+						text-align, text-indent, text-transform, visibility, white-space and word-spacing. Properties that cannot be
+						inherited are background, border, display, float and clear, height, and width, margin, min- and max-height
+						and -width, outline, overflow, padding, position, text-decoration, vertical-align and z-index.
+					</p>
+
+					<p>
+						Inheritance can be used to avoid declaring certain properties over and over again in a style sheet, allowing
+						for shorter CSS.
+					</p>
+
+					<p>
+						Inheritance in CSS is not the same as inheritance in class-based programming languages, where it is possible
+						to define class B as "like class A, but with modifications".[15] With CSS, it is possible to style
+						an element with "class A, but with modifications". However, it is not possible to define a CSS class B like
+						that, which could then be used to style multiple elements without having to repeat the modifications.
+					</p>
+
+					<p>
+						Example[edit]
+						Given the following style sheet:
+						<code>
+												h1 {
+														color: pink;
+												}
+										</code>
+						Suppose there is an h1 element with an emphasizing element (em) inside:
+						<code>
+												&lt;h1&gt;
+														This is to &lt;em&gt;illustrate&lt;/em&gt; inheritance
+												</h1>
+										</code>
+						If no color is assigned to the em element, the emphasized word "illustrate" inherits the color of the parent element, h1. The style sheet h1 has the color pink, hence, the em element is likewise pink.
+					</p>
+
+				</section>
+
+				<!--Whitespace-->
+				<section id="Whitespace" class="main-section">
+					<header>Whitespace</header>
+					<p>
+						Whitespace between properties and selectors is ignored. This code snippet:
+						body{overflow:hidden;background:#000000;background-image:url(images/bg.gif);background-repeat:no-repeat;background-position:left
+						top;}
+						is functionally equivalent to this one:
+					</p>
+					<code>
+										body {
+												overflow: hidden;
+												background: #000000;
+												background-image: url(images/bg.gif);
+												background-repeat: no-repeat;
+												background-position: left top;
+											}
+
+						</code>
+
+					<p> One common way to format CSS for readability is to indent each property and give it its own line. In
+						addition to formatting CSS for readability, you can use shorthand properties to write out the code faster
+						which also gets processed more quickly when being rendered,[16] like so:
+						<code>
+										body {
+												overflow: hidden;
+												background: #000 url(images/bg.gif) no-repeat left top;
+												}
+
+								</code>
+
+					</p>
+
+				</section>
+
+				<!--Positioning-->
+				<section id="Positioning" class="main-section">
+					<header>Positioning</header>
+					<h1>CSS 2.1 defines three positioning schemes:</h1>
+					<h2>Normal flow</h2>
+					<p>Inline items are laid out in the same way as the letters in words in text, one after the other across the
+						available space until there is no more room, then starting a new line below. Block items stack vertically,
+						like paragraphs and like the items in a bulleted list. Normal flow also includes relative positioning of
+						block or inline items, and run-in boxes.</p>
+					<h2>Floats</h2>
+					<p>A floated item is taken out of the normal flow and shifted to the left or right as far as possible in the
+						space available. Other content then flows alongside the floated item.</p>
+					<h2>Absolute positioning</h2>
+					<p>An absolutely positioned item has no place in, and no effect on, the normal flow of other items. It
+						occupies its assigned position in its container independently of other items.[17]</p>
+					<h2>Position property[edit]</h2>
+					<p>There are four possible values of the position property. If an item is positioned in any way other
+						than static, then the further properties top, bottom, left, and rightare used to specify offsets and
+						positions.</p>
+					<h2>Static</h2>
+					<p>The default value places the item in the normal flow</p>
+					<h2>Relative</h2>
+					<p>The item is placed in the normal flow, and then shifted or offset from that position. Subsequent flow items
+						are laid out as if the item had not been moved.</p>
+					<h2>Absolute</h2>
+					<p>Specifies absolute positioning. The element is positioned in relation to its nearest non-static ancestor.
+					</p>
+					<h2>Fixed</h2>
+					<p>The item is absolutely positioned in a fixed position on the screen even as the rest of the document is
+						scrolled[17]</p>
+
+					<h2>Float and clear[edit]</h2>
+					<p>The float property may have one of three values. Absolutely positioned or fixed items cannot be floated.
+						Other elements normally flow around floated items, unless they are prevented from doing so by
+						their clear property.
+					</p>
+					<h2>left</h2>
+					<p>The item floats to the left of the line that it would have appeared in; other items may flow around its
+						right side.</p>
+					<h2>right</h2>
+					<p>The item floats to the right of the line that it would have appeared in; other items may flow around its
+						left side.</p>
+					<h2>clear</h2>
+					<p>Forces the element to appear underneath ('clear') floated elements to the left (clear:left), right
+						(clear:right) or both sides (clear:both).[17][18]</p>
+
+				</section>
+
+				<section id="History" class="main-section">
+					<header>History</header>
+					<p>
+						CSS was first proposed by Håkon Wium Lie on October 10, 1994.[19] At the time, Lie was working with Tim Berners-Lee at CERN.[20] Several other style sheet languages for the web were proposed around the same time, and discussions on public mailing lists and inside World Wide Web Consortium resulted in the first W3C CSS Recommendation (CSS1)[21] being released in 1996.
+					</p>
+
+					<p>
+						In particular, a proposal by Bert Bos was influential; he	became co-author of CSS1, and is regarded as co-creator of CSS.[22]	Style sheets have existed in one form or another since the beginnings of Standard Generalized Markup	Language (SGML) in the 1980s, and CSS was developed to provide style sheets for the web.[23] One requirement for a web style sheet language was for style sheets to come from different sources on the web.
+					</p>
+
+						<p>
+							Therefore,	existing style sheet languages like DSSSL and FOSI were not suitable. CSS, on the other hand, let a	document's style be influenced by multiple style sheets by way of "cascading" styles.[23
+					</p>
+
+					<p>
+						As HTML grew, it came to encompass a wider variety of stylistic capabilities to meet the demands of web developers. This evolution gave the designer more control over site appearance, at the cost of more complex HTML. Variations in web browser implementations, such as ViolaWWW and WorldWideWeb,[24] made consistent site	appearance difficult, and users had less control over how web content was displayed.
+					</p>
+
+						<p>
+							The browser/editor	developed by Tim Berners-Lee had style sheets that were hard-coded into the program. The style sheets could	therefore not be linked to documents on the web.[25] Robert Cailliau, also of CERN, wanted to separate the	structure from the presentation so that different style sheets could describe different presentation for	printing, screen-based presentations, and editors.[24]
+					</p>
+
+					<p>
+						Improving web presentation capabilities was a topic of interest to many in the web community and nine	different style sheet languages were proposed on the www-style mailing list.[23] Of these nine proposals,	two were especially influential on what became CSS: Cascading HTML Style Sheets[19] and Stream-based Style	Sheet Proposal (SSP).
+					</p>
+
+						<p>	[22][26] Two browsers served as testbeds for the initial proposals; Lie worked	with Yves Lafon to implement CSS in Dave Raggett's Arena browser.[27][28][29] Bert Bos implemented his own SSP proposal in the Argo browser.[22] Thereafter, Lie and Bos worked together to develop the CSS standard	(the 'H' was removed from the name because these style sheets could also be applied to other markup	languages besides HTML).[20]
+					</p>
+
+					<p>
+						Lie's proposal was presented at the "Mosaic and the Web" conference (later called WWW2) in Chicago,	Illinois in 1994, and again with Bert Bos in 1995.[20] Around this time the W3C was already being	established, and took an interest in the development of CSS. It organized a workshop toward that end chaired	by Steven Pemberton.
+					</p>
+
+						<p>	This resulted in W3C adding work on CSS to the deliverables of the HTML editorial	review board (ERB). Lie and Bos were the primary technical staff on this aspect of the project, with	additional members, including Thomas Reardon of Microsoft, participating as well. In August 1996, Netscape	Communication Corporation presented an alternative style sheet language called JavaScript Style	Sheets (JSSS).[20] The spec was never finished, and is deprecated.[30] By the end of 1996, CSS was ready to	become official, and the CSS level 1 Recommendation was published in December.
+					</p>
+
+					<p>
+						Development of HTML, CSS, and the DOM had all been taking place in one group, the HTML Editorial Review	Board (ERB).Early in 1997, the ERB was split into three working groups: HTML Working group, chaired by Dan Connolly of W3C; DOM Working group, chaired by Lauren Wood of SoftQuad; and CSS Working group, chaired	by Chris Lilley of W3C.
+					</p>
+
+						<p>		The CSS Working Group began tackling issues that had not been addressed with CSS level 1, resulting in the	creation of CSS level 2 on November 4, 1997. It was published as a W3C Recommendation on May 12, 1998. CSS level 3, which was started in 1998, is still under development as of 2014.	In 2005, the CSS Working Groups decided to enforce the requirements for standards more strictly. This meant	that already published standards like CSS 2.1, CSS 3 Selectors, and CSS 3 Text were pulled back from Candidate Recommendation to Working Draft level.
+					</p>
+				</section>
+
+			</main>
+
+			<div class="clearfix"></div>
+
+		</div>
+
+		<button id="myBtn">Top</button>
+		<footer></footer>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="main.js"></script>
+		<!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+
+	</body>
+
+</html>
